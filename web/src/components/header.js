@@ -1,32 +1,38 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import Layout from "./layout"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
+  <header className="nav-outer-wrapper">
+    <div className="w-5/6 lg:w-4/6 mx-auto items-center flex justify-between">
+      <h1 className="leading-none text-2xl">
         <Link
           to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
+          className="no-underline text-white font-bold hover:text-secondary cursor-pointer"
         >
-          {siteTitle}
+          Home
         </Link>
       </h1>
+      <div className="flex justify-center items-center">
+        <ul className="flex justify-center items-center space-x-4">
+          <li className="">
+            <Link to="/blogs" className="nav-link">
+              Blogs
+            </Link>
+          </li>
+          <li className="">
+            <Link to="/" className="nav-link">
+              About
+            </Link>
+          </li>
+          <li className="">
+            <Link to="/" className="nav-link">
+              Contact
+            </Link>
+          </li>
+        </ul>
+      </div>
     </div>
   </header>
 )

@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .nav-outer-wrapper {
+    @apply bg-gradient-to-l from-purple-200 via-purple-400 to-purple-800 flex  justify-between relative  shadow-md py-8  z-10;
+  }
+  .nav-link {
+    @apply text-secondary hover:text-white text-base 2xl:text-lg font-bold;
+  }
+}
