@@ -31,5 +31,14 @@ export default {
       title: "Sponsor",
       type: "sponsor",
     },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "name",
+        maxLength: 96,
+      },
+    },
   ],
 };

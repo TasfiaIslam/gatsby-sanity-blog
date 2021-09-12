@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Layout from "./layout"
 
 const Blogs = () => {
@@ -25,6 +25,9 @@ const Blogs = () => {
                 url
               }
             }
+            slug {
+              current
+            }
           }
         }
       }
@@ -32,14 +35,20 @@ const Blogs = () => {
   `)
 
   const allSanityBlogPost = data.allSanityBlogPost.edges
-  console.log(1, allSanityBlogPost)
 
   return (
     <>
       {allSanityBlogPost.map(blog => (
         <div key={blog.node._id} className="my-20">
           <div>
-            <h2 className="text-lg font-bold">{blog.node.name}</h2>
+            <Link
+              to={"/blogs/" + blog.node.slug.current}
+              key={blog.node.slug.current}
+            >
+              <h2 className="text-lg font-bold cursor-pointer">
+                {blog.node.name}
+              </h2>
+            </Link>
             <p className="text-sm my-4">{blog.node.description}</p>
             <img
               className="h-64 w-80 object-cover"
